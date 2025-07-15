@@ -26,3 +26,8 @@ This project is organized into several directories and files, each serving a spe
 
 - **flash.sh**  
   A convenient shell script to automate the build and flash process. It cleans previous builds, compiles the firmware, and flashes the binary onto the Pico board, streamlining development and testing.
+
+
+## Hardware Schematic
+  ![schematic.drawio.png](Resources/schematic.drawio.png)
+
