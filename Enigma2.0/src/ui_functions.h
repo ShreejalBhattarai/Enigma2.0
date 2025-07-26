@@ -1,6 +1,7 @@
 #ifndef UI_FUNCTIONS_H
 #define UI_FUNCTIONS_H
 
-void dummy_ui();
-
+void greet_user();
+void print_banners();
+void print_menu();
 #endif
