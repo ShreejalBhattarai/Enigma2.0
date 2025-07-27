@@ -3,5 +3,11 @@
 
 // void set_rotor_order(int a, int b, int c);
 char get_menu_choice();
-// void setup_leds();
+void reset_rotors();
+void setup_leds();
+void set_rotor_order (int a, int b, int c);
+void set_ring_settings ();
+int confirm(char inputgiven);
+void load_config();
+void save_config();
 #endif
