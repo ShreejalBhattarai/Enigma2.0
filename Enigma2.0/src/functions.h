@@ -10,4 +10,7 @@ void set_ring_settings ();
 int confirm(char inputgiven);
 void load_config();
 void save_config();
+void process_message(const char *message);
+char enigma_encrypt(char ch);
+void step_rotors();
 #endif

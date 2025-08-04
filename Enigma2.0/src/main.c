@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>  
 #include <ctype.h>
 #include "functions.h"
 #include "plugboard.h"
@@ -10,6 +11,9 @@
 
 
 int main() {
+     char input_raw[MAX_MESSAGE_LENGTH];   // Buffer for raw user input
+    char input_clean[MAX_MESSAGE_LENGTH]; // Buffer for cleaned (uppercase, alpha-only) input
+
     stdio_init_all();
     sleep_ms(SLEEP_TIME_MS);
 
@@ -35,9 +39,28 @@ int main() {
 
         switch (choice){
             case 'E':
-                printf("Consider done hehe");
-                break;
+            case 'D':
+                reset_rotors();
+                printf("Enter your message: ");
+                
+                int c;
+                while ((c = getchar()) != '\n' && c!= EOF);
+                if (fgets(input_raw, MAX_MESSAGE_LENGTH, stdin) != NULL) {
+                    input_raw[strcspn(input_raw, "\n")] = 0;
+                } else {
+                    printf("Error reading input. Please try again.\n");
+                    break;
+                }
 
+                if (strlen(input_clean) == 0) {
+                    printf("No valid letters to process. Please try again with letters.\n");
+                    break;
+                }
+
+
+                printf("Output: ");
+                process_message(input_clean); 
+                break;
 
             case 'C':
             {
@@ -62,12 +85,6 @@ int main() {
                     break;
                 }
 
-
-            case 'D':
-                printf("Consider done hehe");
-                break;
-
-
             case 'L':
                     {
                     load_config(); 
@@ -83,7 +100,7 @@ int main() {
                 }
                 break;
 
-                
+
             case 'R':
             char confirmation;
             printf("Reset all Enigma settings to defaults? (y/n): ");
