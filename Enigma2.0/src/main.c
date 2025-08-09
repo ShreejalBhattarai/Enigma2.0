@@ -11,10 +11,11 @@
 
 
 int main() {
-     char input_raw[MAX_MESSAGE_LENGTH];   // Buffer for raw user input
-    char input_clean[MAX_MESSAGE_LENGTH]; // Buffer for cleaned (uppercase, alpha-only) input
+    char input_raw[MAX_MESSAGE_LENGTH];   
+    char input_clean[MAX_MESSAGE_LENGTH]; 
 
-    stdio_init_all();
+    stdio_init_all();  // Initializes standard I/O on Pico (USB, UART, etc.)
+    setvbuf(stdout, NULL, _IONBF, 0);  // Disables output buffering (so prints show instantly)
     sleep_ms(SLEEP_TIME_MS);
 
     reset_rotors();
@@ -24,43 +25,41 @@ int main() {
     reset_plugboard();
     printf("Resetting Plugboard.\n");
 
-    //green flag
     greet_user();
-
     sleep_ms(SLEEP_TIME_MS);
-
     print_banners();
-
     sleep_ms(SLEEP_TIME_MS);
 
     while (true) {
         print_menu();
         char choice = get_menu_choice();
+        printf("%c", choice);
+        printf("\n");
 
         switch (choice){
             case 'E':
             case 'D':
                 reset_rotors();
-                printf("Enter your message: ");
-                
+                printf("Enter your message: \n"); 
+
+                //UNCERTAIN WITH THESE CHAIN OF COMMANDS
                 int c;
-                while ((c = getchar()) != '\n' && c!= EOF);
+                while ((c = getchar()) != '\n' && c != EOF); // Clear leftover characters in stdin
                 if (fgets(input_raw, MAX_MESSAGE_LENGTH, stdin) != NULL) {
-                    input_raw[strcspn(input_raw, "\n")] = 0;
+                    input_raw[strcspn(input_raw, "\n")] = 0;  // strip newline
                 } else {
                     printf("Error reading input. Please try again.\n");
                     break;
                 }
+                clean_input(input_raw, input_clean);
 
                 if (strlen(input_clean) == 0) {
                     printf("No valid letters to process. Please try again with letters.\n");
                     break;
                 }
-
-
-                printf("Output: ");
-                process_message(input_clean); 
-                break;
+                        printf("Output: ");
+                        process_message(input_clean); 
+                        break;
 
             case 'C':
             {

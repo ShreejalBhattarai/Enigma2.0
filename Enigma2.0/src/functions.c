@@ -1,32 +1,29 @@
 #include <stdio.h>
 #include "functions.h"
 #include <ctype.h>
+#include "plugboard.h"
 
 
-// Rotor wirings (historical Enigma I rotors)
-// These strings represent the fixed internal wiring of each physical rotor.
-// E.g., for ROTOR_I_WIRING, 'A' (index 0) maps to 'E' (index 4), 'B' (index 1) maps to 'K' (index 10), etc.
 const char ROTOR_I_WIRING[] =   "EKMFLGDQVZNTOWYHXUSPAIBRCJ";
 const char ROTOR_II_WIRING[] =  "AJDKSIRUXBLHWTMCQGZNPYFVOE";
 const char ROTOR_III_WIRING[] = "BDFHJLCPRTXVZNYEIWGAKMUSQO";
 
+// Rotor positions: 0 = 'A', 1 = 'B', ..., 25 = 'Z'
+int rotor_positions[3] = {0, 0, 0}; // Left, Middle, Right
+
+// Notch positions for rotors I, II, III
+int notch_positions[3] = {
+    'Y' - 'A', // Rotor I notch
+    'M' - 'A', // Rotor II notch
+    'D' - 'A'  // Rotor III notch
+};
 
 
-#define ALPHABET_SIZE 26 // The size of the English alphabet (A-Z)
+#define ALPHABET_SIZE 26 
 
 
 const char REFLECTOR_B_WIRING[] = "YRUHQSLDPXNGOKMIEBFZCWVJAT";
-
-
-// Notches (points where the rotor causes the next rotor to its left to step)
-// These correspond to the letter on the rotor's ring where the notch is located.
-// For Enigma I: Rotor I (Y), Rotor II (M), Rotor III (D).
-// The array index corresponds to the physical rotor ID (0 for I, 1 for II, 2 for III).
-// We pad it with spaces for potential future rotors (IV, V) if they were added.
 const char ROTOR_NOTCHES[] = {'Y', 'M', 'D', ' ', ' '};
-
-
-
 
 char get_menu_choice() {
     char choice;
@@ -44,41 +41,55 @@ int confirm(char inputgiven) {
 
 void process_message(const char *message) {
     for (int i = 0; message[i] != '\0'; i++) {
-        char ch = message[i]; // Get the current character
+        char ch = message[i]; 
 
-        // 1. Apply plugboard mapping for the input character (from functions.c)
-        apply_plugboard_mapping(&ch);
+        step_rotors();                          // Step before encryption
+        apply_plugboard_mapping(&ch);           // Plugboard input
+        char enc = enigma_encrypt(ch);          // Through rotors + reflector
+        apply_plugboard_mapping(&enc);          // Plugboard output
 
-        // 2. Encrypt/Decrypt the character through the rotors and reflector (from functions.c)
-        char enc = enigma_encrypt(ch);
-
-        // 3. Apply plugboard mapping again for the output character (symmetric) (from functions.c)
-        // apply_plugboard_mapping(&enc);
-
-        // 4. Print the resulting character
         printf("%c", enc);
-
-        // 5. Simulate the lampboard by blinking an LED (from functions.c)
-        // blink_led_for_letter(enc); NOT GOING TO IMPLEMENT YET
-
-        // 6. Step the rotors for the next character (from functions.c)
-        step_rotors();
     }
-    printf("\n"); // Print a newline after the message is fully processed
+    printf("\n"); 
 }
 
+
+//Dummy-----> Not currently implemented
+char enigma_encrypt(const char ch) {
+    return ch;
+}
 
 void set_rotor_order(int a, int b, int c) {
     printf("Rotor order set to: %d %d %d\n", a, b, c);
 }
 
-char enigma_encrypt(char ch) {
-
-}
-
 void step_rotors() {
+    // Double-stepping logic:
+    // If middle rotor is at its notch, step middle AND left
+    if (rotor_positions[1] == notch_positions[1]) {
+        rotor_positions[0] = (rotor_positions[0] + 1) % ALPHABET_SIZE; // Step left
+        rotor_positions[1] = (rotor_positions[1] + 1) % ALPHABET_SIZE; // Step middle
+    }
 
+    // If right rotor is at its notch, step middle
+    if (rotor_positions[2] == notch_positions[2]) {
+        rotor_positions[1] = (rotor_positions[1] + 1) % ALPHABET_SIZE;
+    }
+
+    // Always step right rotor
+    rotor_positions[2] = (rotor_positions[2] + 1) % ALPHABET_SIZE;
 }
+
+void clean_input(const char *input_raw, char *input_clean) {
+    int j = 0;
+    for (int i = 0; input_raw[i] != '\0'; i++) {
+        if (isalpha((unsigned char)input_raw[i])) {  
+            input_clean[j++] = toupper((unsigned char)input_raw[i]);
+        }
+    }
+    input_clean[j] = '\0'; // Null-terminate
+}
+
 
 void set_ring_settings() {
 

@@ -10,4 +10,4 @@ CMakeFiles/enigma.dir/Enigma2.0/src/plugboard.c.o: \
  /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h \
  /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/stdio.h \
- /home/shreejal/Documents/Projects/enigma/Enigma2.0/src/plugboard.h
+ /usr/include/newlib/ctype.h /usr/include/newlib/sys/_locale.h
