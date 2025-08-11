@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/enigma.dir/Enigma2.0/src/main.c.o.d"
   "CMakeFiles/enigma.dir/Enigma2.0/src/plugboard.c.o"
   "CMakeFiles/enigma.dir/Enigma2.0/src/plugboard.c.o.d"
+  "CMakeFiles/enigma.dir/Enigma2.0/src/rotors.c.o"
+  "CMakeFiles/enigma.dir/Enigma2.0/src/rotors.c.o.d"
   "CMakeFiles/enigma.dir/Enigma2.0/src/ui_functions.c.o"
   "CMakeFiles/enigma.dir/Enigma2.0/src/ui_functions.c.o.d"
   "CMakeFiles/enigma.dir/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.o"

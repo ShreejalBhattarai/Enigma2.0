@@ -18,6 +18,8 @@ add_executable(enigma
     Enigma2.0/src/functions.c
     Enigma2.0/src/plugboard.c
     Enigma2.0/src/ui_functions.c
+    Enigma2.0/src/rotors.c
+    Enigma2.0/src/rotors.h
 )
 
 # Link Pico SDK

@@ -292,6 +292,30 @@ Enigma2.0/src/plugboard.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/enigma.dir/build.make CMakeFiles/enigma.dir/Enigma2.0/src/plugboard.c.s
 .PHONY : Enigma2.0/src/plugboard.c.s
 
+Enigma2.0/src/rotors.o: Enigma2.0/src/rotors.c.o
+.PHONY : Enigma2.0/src/rotors.o
+
+# target to build an object file
+Enigma2.0/src/rotors.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/enigma.dir/build.make CMakeFiles/enigma.dir/Enigma2.0/src/rotors.c.o
+.PHONY : Enigma2.0/src/rotors.c.o
+
+Enigma2.0/src/rotors.i: Enigma2.0/src/rotors.c.i
+.PHONY : Enigma2.0/src/rotors.i
+
+# target to preprocess a source file
+Enigma2.0/src/rotors.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/enigma.dir/build.make CMakeFiles/enigma.dir/Enigma2.0/src/rotors.c.i
+.PHONY : Enigma2.0/src/rotors.c.i
+
+Enigma2.0/src/rotors.s: Enigma2.0/src/rotors.c.s
+.PHONY : Enigma2.0/src/rotors.s
+
+# target to generate assembly for a file
+Enigma2.0/src/rotors.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/enigma.dir/build.make CMakeFiles/enigma.dir/Enigma2.0/src/rotors.c.s
+.PHONY : Enigma2.0/src/rotors.c.s
+
 Enigma2.0/src/ui_functions.o: Enigma2.0/src/ui_functions.c.o
 .PHONY : Enigma2.0/src/ui_functions.o
 
@@ -2085,6 +2109,9 @@ help:
 	@echo "... Enigma2.0/src/plugboard.o"
 	@echo "... Enigma2.0/src/plugboard.i"
 	@echo "... Enigma2.0/src/plugboard.s"
+	@echo "... Enigma2.0/src/rotors.o"
+	@echo "... Enigma2.0/src/rotors.i"
+	@echo "... Enigma2.0/src/rotors.s"
 	@echo "... Enigma2.0/src/ui_functions.o"
 	@echo "... Enigma2.0/src/ui_functions.i"
 	@echo "... Enigma2.0/src/ui_functions.s"

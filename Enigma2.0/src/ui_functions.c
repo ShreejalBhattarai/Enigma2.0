@@ -2,15 +2,15 @@
 #include "ui_functions.h"
 
 void greet_user() {
-    printf("UI ready\n");
+    printf("Welcome to the Pico Enigma Simulator!\n");
 }
 
 void print_banners() {
     printf("\n");
     printf("****************************************\n");
-    printf("* *\n");
-    printf("* Pico Enigma Simulator         *\n");
-    printf("* *\n");
+    printf("*                                      *\n");
+    printf("*         Pico Enigma Simulator        *\n");
+    printf("*                                      *\n");
     printf("****************************************\n");
     printf("\n");
 }
