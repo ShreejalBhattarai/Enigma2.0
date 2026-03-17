@@ -15,7 +15,7 @@ int confirm(char c);
 void reset_rotors();
 void setup_leds();
 void set_rotor_order(int a, int b, int c);
-void set_ring_settings();
+void set_ring_settings(int r1, int r2, int r3);
 void load_config();
 void save_config();
 void clear_stdin();

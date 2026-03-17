@@ -4,7 +4,7 @@
 
 // based on PICO_CONFIG_HEADER_FILES:
 
-#include "/home/shreejal/Documents/Projects/enigma/pico-sdk/src/boards/include/boards/pico.h"
-#include "/home/shreejal/Documents/Projects/enigma/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h"
+#include "/Users/shreejalbhattarai/Desktop/Enigma2.0/pico-sdk/src/boards/include/boards/pico.h"
+#include "/Users/shreejalbhattarai/Desktop/Enigma2.0/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h"
 
 // based on PICO_RP2040_CONFIG_HEADER_FILES:

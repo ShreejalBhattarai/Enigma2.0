@@ -4,6 +4,6 @@
 
 method=source_dir
 command=
-source_dir=/home/shreejal/Documents/Projects/enigma/build/_deps/picotool-src
+source_dir=/Users/shreejalbhattarai/Desktop/Enigma2.0/build/_deps/picotool-src
 work_dir=
 

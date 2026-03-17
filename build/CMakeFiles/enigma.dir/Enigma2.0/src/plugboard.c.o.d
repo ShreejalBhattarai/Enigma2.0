@@ -1,14 +1,22 @@
 CMakeFiles/enigma.dir/Enigma2.0/src/plugboard.c.o: \
- /home/shreejal/Documents/Projects/enigma/Enigma2.0/src/plugboard.c \
- /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h \
- /usr/include/newlib/newlib.h /usr/include/newlib/_newlib_version.h \
- /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h \
- /usr/include/newlib/sys/features.h /usr/include/newlib/sys/cdefs.h \
- /usr/include/newlib/machine/_default_types.h \
- /usr/lib/gcc/arm-none-eabi/13.2.1/include/stddef.h \
- /usr/lib/gcc/arm-none-eabi/13.2.1/include/stdarg.h \
- /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h \
- /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h \
- /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/stdio.h \
- /usr/include/newlib/ctype.h /usr/include/newlib/sys/_locale.h \
- /home/shreejal/Documents/Projects/enigma/Enigma2.0/src/plugboard.h
+ /Users/shreejalbhattarai/Desktop/Enigma2.0/Enigma2.0/src/plugboard.c \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/arm-none-eabi/include/stdio.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/arm-none-eabi/include/_ansi.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/arm-none-eabi/include/newlib.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/arm-none-eabi/include/_newlib_version.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/arm-none-eabi/include/sys/config.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/arm-none-eabi/include/machine/ieeefp.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/arm-none-eabi/include/sys/features.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/arm-none-eabi/include/sys/cdefs.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/arm-none-eabi/include/machine/_default_types.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/include/stddef.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/include/stdarg.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/arm-none-eabi/include/sys/reent.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/arm-none-eabi/include/_ansi.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/arm-none-eabi/include/sys/_types.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/arm-none-eabi/include/machine/_types.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/arm-none-eabi/include/sys/lock.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/arm-none-eabi/include/sys/stdio.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/arm-none-eabi/include/ctype.h \
+ /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/arm-none-eabi/include/sys/_locale.h \
+ /Users/shreejalbhattarai/Desktop/Enigma2.0/Enigma2.0/src/plugboard.h

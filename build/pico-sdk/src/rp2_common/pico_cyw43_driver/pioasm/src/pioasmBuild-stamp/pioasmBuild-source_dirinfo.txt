@@ -4,6 +4,6 @@
 
 method=source_dir
 command=
-source_dir=/home/shreejal/Documents/Projects/enigma/pico-sdk/tools/pioasm
+source_dir=/Users/shreejalbhattarai/Desktop/Enigma2.0/pico-sdk/tools/pioasm
 work_dir=
 

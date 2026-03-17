@@ -1,5 +1,7 @@
-/home/shreejal/Documents/Projects/enigma/build/_deps/picotool/picotool
-/home/shreejal/Documents/Projects/enigma/build/_deps/picotool/picotoolTargets.cmake
-/home/shreejal/Documents/Projects/enigma/build/_deps/picotool/picotoolTargets-release.cmake
-/home/shreejal/Documents/Projects/enigma/build/_deps/picotool/picotoolConfig.cmake
-/home/shreejal/Documents/Projects/enigma/build/_deps/picotool/picotoolConfigVersion.cmake
+/Users/shreejalbhattarai/Desktop/Enigma2.0/build/_deps/picotool/picotool
+/Users/shreejalbhattarai/Desktop/Enigma2.0/build/_deps/picotool/picotoolTargets.cmake
+/Users/shreejalbhattarai/Desktop/Enigma2.0/build/_deps/picotool/picotoolTargets-release.cmake
+/Users/shreejalbhattarai/Desktop/Enigma2.0/build/_deps/picotool/picotoolConfig.cmake
+/Users/shreejalbhattarai/Desktop/Enigma2.0/build/_deps/picotool/picotoolConfigVersion.cmake
+/Users/shreejalbhattarai/Desktop/Enigma2.0/build/_deps/picotool/enc_bootloader.elf
+/Users/shreejalbhattarai/Desktop/Enigma2.0/build/_deps/picotool/enc_bootloader_mbedtls.elf

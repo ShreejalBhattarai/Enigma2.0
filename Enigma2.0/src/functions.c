@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include "pico/stdlib.h"
 #include "functions.h"
 #include "plugboard.h"
 #include "rotors.h"
@@ -55,9 +56,26 @@ void process_message(char *message) {
 }
 
 char get_menu_choice() {
-    char choice;
-    scanf("%c", &choice);
-    return toupper(choice);
+    int c;
+
+    // Read the first non-whitespace character (doesn't require Enter in most serial terminals).
+    while ((c = getchar()) != EOF) {
+        if (c == '\n' || c == '\r' || c == ' ' || c == '\t') {
+            continue;
+        }
+
+        // Drain any remaining buffered characters without blocking.
+        // Some serial monitors send a full line (ending with '\n'), others send single chars.
+        while (true) {
+            int d = getchar_timeout_us(0);
+            if (d == PICO_ERROR_TIMEOUT) break;
+            if (d == '\n' || d == '\r') break;
+        }
+
+        return toupper((unsigned char)c);
+    }
+
+    return '\0';
 }
 
 int confirm(char c) {
@@ -78,17 +96,9 @@ void set_rotor_order(int a, int b, int c) {
     printf("Rotor order set to: %d %d %d\n", a, b, c);
 }
 
-void set_ring_settings() {
-    int r1, r2, r3;
-    printf("Enter ring settings (1-26) for rotors 1 2 3 separated by space: ");
-    if (scanf("%d %d %d", &r1, &r2, &r3) == 3) {
-        rotors_set_ring_settings(r1, r2, r3);
-        printf("Ring settings set to: %d %d %d\n", r1, r2, r3);
-    } else {
-        printf("Invalid input for ring settings.\n");
-        int c;
-        while ((c = getchar()) != '\n' && c != EOF);
-    }
+void set_ring_settings(int r1, int r2, int r3) {
+    rotors_set_ring_settings(r1, r2, r3);
+    printf("Ring settings set to: %d %d %d\n", r1, r2, r3);
 }
 
 void load_config() {

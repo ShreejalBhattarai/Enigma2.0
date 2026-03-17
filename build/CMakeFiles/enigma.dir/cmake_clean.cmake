@@ -132,6 +132,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/enigma.dir/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o"
   "CMakeFiles/enigma.dir/pico-sdk/src/rp2_common/pico_malloc/malloc.c.o.d"
   "CMakeFiles/enigma.dir/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.o"
+  "CMakeFiles/enigma.dir/pico-sdk/src/rp2_common/pico_platform_common/common.c.o"
+  "CMakeFiles/enigma.dir/pico-sdk/src/rp2_common/pico_platform_common/common.c.o.d"
   "CMakeFiles/enigma.dir/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o"
   "CMakeFiles/enigma.dir/pico-sdk/src/rp2_common/pico_platform_panic/panic.c.o.d"
   "CMakeFiles/enigma.dir/pico-sdk/src/rp2_common/pico_printf/printf.c.o"
@@ -158,8 +160,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/enigma.dir/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.o.d"
   "CMakeFiles/enigma.dir/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.o"
   "CMakeFiles/enigma.dir/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.o.d"
+  "enigma.bin"
+  "enigma.dis"
   "enigma.elf"
+  "enigma.hex"
   "enigma.pdb"
+  "enigma.uf2"
 )
 
 # Per-language clean rules from dependency scanning.

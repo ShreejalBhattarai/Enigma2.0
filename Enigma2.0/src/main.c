@@ -52,30 +52,39 @@ int main() {
             case 'E':
             case 'D': {
                 reset_rotors();
-                printf("Enter your message: \n");
+                printf("Enter your message (Enter to finish): \n");
                 fflush(stdout);
 
-                char input_buffer[INPUT_BUFFER_SIZE];
-                char input_clean[INPUT_BUFFER_SIZE];
+                // Read input in a way that works for serial monitors that don't send '\n'
+                // until Enter is pressed. If the user pauses for a moment, we treat it as end.
+                size_t len = 0;
+                const uint32_t idle_timeout_us = 700 * 1000; // 700ms idle ends message if we have chars
+                absolute_time_t last_rx = get_absolute_time();
 
-                // Read a full line safely
-                if (fgets(input_buffer, sizeof(input_buffer), stdin) == NULL) {
-                    printf("Error reading input. Please try again.\n");
-                    break; // Exit the switch case on error
-                }
+                while (len < sizeof(input_buffer) - 1) {
+                    int ch = getchar_timeout_us(0);
+                    if (ch == PICO_ERROR_TIMEOUT) {
+                        if (len > 0 && absolute_time_diff_us(last_rx, get_absolute_time()) > (int64_t)idle_timeout_us) {
+                            break;
+                        }
+                        tight_loop_contents();
+                        continue;
+                    }
 
-                // Check if a newline was found and strip it.
-                // If not found, the buffer was filled, and we need to clear stdin.
-                char *newline_pos = strchr(input_buffer, '\n');
-                if (newline_pos != NULL) {
-                    *newline_pos = '\0'; // Newline found, strip it
-                } else {
-                    // Newline NOT found: input line was longer than buffer.
-                    // Clear the rest of the overly long line from stdin.
-                    printf("Warning: Input truncated due to length limit. Clearing buffer.\n");
-                    clear_stdin(); // Call helper to clear remaining chars
+                    last_rx = get_absolute_time();
+
+                    if (ch == '\n' || ch == '\r') {
+                        break;
+                    }
+
+                    input_buffer[len++] = (char)ch;
                 }
-                printf("before clean input");
+                input_buffer[len] = '\0';
+
+                // Drain any extra characters without blocking (in case user typed too much)
+                while (getchar_timeout_us(0) != PICO_ERROR_TIMEOUT) {
+                    // keep draining
+                }
 
                 // Clean input (only letters, uppercase)
                 clean_input(input_buffer, input_clean);
@@ -88,7 +97,7 @@ int main() {
                 printf("Output: ");
                 process_message(input_clean);
                 printf("\n\n"); // Added for better output formatting
-                // No break here, as it's already handled by the switch case
+                break;
             }
 
 
@@ -138,9 +147,7 @@ int main() {
                             }
 
                             if (sscanf(input_buffer, "%d %d %d", &r1, &r2, &r3) == 3) {
-                                set_ring_settings();  // You might want to pass these or handle here instead
                                 set_ring_settings(r1, r2, r3);
-                                printf("Ring settings set to: %d %d %d\n", r1, r2, r3);
                             } else {
                                 printf("Invalid input for ring settings.\n");
                             }
